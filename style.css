@@ -1,0 +1,87 @@
+body {
+    background-color: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* Prevents scrollbars during animation */
+}
+
+.container {
+    position: relative;
+}
+
+.message {
+    font-family: monospace;
+    font-size: 2em;
+    color: #0f0;
+    /* Green text for console effect */
+    white-space: nowrap;
+    /* Prevent text from wrapping */
+    overflow: hidden;
+    /* Hide text that overflows during animation */
+    border-right: .05em solid #0f0;
+    /* Simulate blinking cursor */
+    animation: typing 3.5s steps(28, end) forwards,
+        /* Typing animation */
+        blink-caret .75s step-end infinite;
+    /* Blinking cursor */
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #0f0;
+    }
+}
+
+.arrow {
+    position: absolute;
+    bottom: -50px;
+    /* Position below the text */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 30px solid #0f0;
+    /* Green arrow */
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) translateX(-50%);
+    }
+
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
